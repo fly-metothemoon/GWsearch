@@ -50,7 +50,7 @@ Note: The `-c` and `-r` options are optional, and you can omit them if not neede
 To check the flight availability from the origin airport "PHX" (Phoenix) for both today and tomorrow, run the following command:
 
 ```
-python flight_availability_checker.py -o PHX -d 3
+python gowild_scraper.py -o PHX -d 3
 ```
 
 This will display the available flights for both today and tomorrow from Phoenix.

@@ -18,7 +18,7 @@ If you don't have Python installed, follow the instructions [here](#downloading-
 - `beautifulsoup4` library
 - `browsercookie` library
 
-You can install the required libraries using `pip`:
+You can install the required libraries using `pip` or `pip3`:
 
 ```
 pip install requests beautifulsoup4 browsercookie
@@ -30,27 +30,30 @@ If you are confused by this jump to [my broken down guide :)](#easy-guide) for s
 To run the program, execute the following command in your terminal [what's my terminal?](#opening-your-terminal):
 
 ```
-python gowild_scraper.py -o [origin] -d [dates] -c -r [resume]
+python gowild_scraper.py -o [origin] -d [dates] -t [enable roundtrip=1] -c -r [resume]
 ```
 
 The program accepts the following command-line arguments:
 
 - `-o` or `--origin`: Specifies the origin airport IATA code.
 - `-d` or `--dates`: Specifies the dates to show flights for. Use the following values:
-  - `1`: Today
-  - `2`: Tomorrow
-  - `3`: Both today and tomorrow
+  - `0`: Today
+  - `1`: Tomorrow
+  - `any #`: Date today + # of days after (if today is 01/01, input 4 would search dates 01/05)
+- `-t` or `--roundtrip`: (Optional) Enable search for a roundtrip/return flights for tomorrow.
+  - 1 for yes
+  - defualt or nothing is no
 - `-c` or `--cjs`: (Optional) Use browser cookies. If specified, the program will use cookies from your default web browser.
 - `-r` or `--resume`: (Optional) Index of the airport to resume from. Use index `21` to only search for contiguous US destinations.
 
-Note: The `-c` and `-r` options are optional, and you can omit them if not needed.
+Note: The `-t`, `-c` and `-r` options are optional, and you can omit them if not needed.
 
 ### Example input
 
-To check the flight availability from the origin airport "PHX" (Phoenix) for both today and tomorrow, run the following command:
+To check the flight availability from the origin airport "PHX" (Phoenix) for tomorrow with next day return flights, run the following command:
 
 ```
-python gowild_scraper.py -o PHX -d 3
+python gowild_scraper.py -o PHX -d 1 -t 1
 ```
 
 This will display the available flights for both today and tomorrow from Phoenix.
@@ -157,7 +160,7 @@ No flights from CUN to AUS
 Next step is downloading the additional python libraries, like extension packs, that I have utilized in the program. If you have installed and set up Python correctly, you should be able to download the packages through your terminal.
 Instructions for opening your terminal for [Windows](#windows), [Mac](#macos), [Linux](#linux)
 
-With your terminal/compand prompt open you can use the *pip* installer that comes with python.
+With your terminal/compand prompt open you can use the *pip* or *pip3* for windows installer that comes with python.
 *copy, paste, enter, and it should start doing its computer things beep boop*
 ```
 pip install requests beautifulsoup4 browsercookie
@@ -205,14 +208,17 @@ Navigate to the folder how you normally would and once inside right click and ch
 
    Replace `ORIGIN` with the IATA airport code of your origin airport (e.g., `JFK` for John F. Kennedy International Airport) and replace `DATES` with one of the following options:
 
-   - `1` - Show flights for today.
-   - `2` - Show flights for tomorrow.
-   - `3` - Show flights for both today and tomorrow.
+   - `0` - Show flights for today.
+   - `1` - Show flights for tomorrow.
+   - `any #` - Show flights for todays date + inputted number
+
+  If you'd like to enable it to search for roudtrips/return flights for the next day, include `-t` or `--roundtrip` followed by `1` for yes
+  - defualt or nothing is no
 
    For example, to check flights for today from JFK Airport, you would use the following command:
 
    ```bash
-   python gowild_scraper.py -o JFK -d 1
+   python gowild_scraper.py -o JFK -d 0 -t 1
    ```
 
 4. The program will display the available flights and their details, including departure dates, total flight time, and prices. If there are roundtrip flights available for the next day, they will be marked with `**`. Next day return flights are only searched for if you plan on departing today. Do you want something different? Let me know!

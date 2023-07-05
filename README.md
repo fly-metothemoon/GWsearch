@@ -181,7 +181,7 @@ Alright we're almost there!
 To use the `gowild_scraper.py` program, you need to download the actual program files from the GitHub repository.
 
 1. Go to my GitHub repository, if you're reading this you're probably already there! 
-[https://github.com/hannahburns/Frontier-GoWild-Search](https://github.com/hannahburns/Frontier-GoWild-Search).
+[https://github.com/fly-metothemoon/GWsearch](https://github.com/fly-metothemoon/GWsearch).
 2. Click on the green "Code" button and select "Download ZIP" to download the repository as a ZIP file.
 3. Once the ZIP file is downloaded, locate it on your computer and unzip it in to a findable location on your computer.
 
@@ -200,7 +200,7 @@ Navigate to the folder how you normally would and once inside right click and ch
 3. Run the program using the following command:
 
    ```bash
-   python flight_availability.py -o ORIGIN -d DATES
+   python gowild_scraper.py -o ORIGIN -d DATES
    ```
 
    Replace `ORIGIN` with the IATA airport code of your origin airport (e.g., `JFK` for John F. Kennedy International Airport) and replace `DATES` with one of the following options:
@@ -212,7 +212,7 @@ Navigate to the folder how you normally would and once inside right click and ch
    For example, to check flights for today from JFK Airport, you would use the following command:
 
    ```bash
-   python flight_availability.py -o JFK -d 1
+   python gowild_scraper.py -o JFK -d 1
    ```
 
 4. The program will display the available flights and their details, including departure dates, total flight time, and prices. If there are roundtrip flights available for the next day, they will be marked with `**`. Next day return flights are only searched for if you plan on departing today. Do you want something different? Let me know!

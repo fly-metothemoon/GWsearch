@@ -30,7 +30,7 @@ If you are confused by this jump to [my broken down guide :)](#easy-guide) for s
 To run the program, execute the following command in your terminal [what's my terminal?](#opening-your-terminal):
 
 ```
-python flight_availability_checker.py -o [origin] -d [dates] -c -r [resume]
+python gowild_scraper.py -o [origin] -d [dates] -c -r [resume]
 ```
 
 The program accepts the following command-line arguments:
@@ -87,7 +87,7 @@ I'm making this repo public so I can learn more from other possible contributors
 
 ### Happy flying!!!
  
-If any of you would like to help further this educational project for the community but don't code, I've created a [**form**](https://forms.gle/B7Xd76NiZLTtxL9A9) where you can leave feedback for update inspo!
+If any of you would like to help further this educational project for the community but don't code, I've created a [**form**](https://forms.gle/B7Xd76NiZLTtxL9A9) where you can leave feedback for update inspo! Or if you'd like to help fuel the work with a cup of [coffee](https://bmc.link/shecodes) that'd be cool too. :)
 
 ### Example output
 

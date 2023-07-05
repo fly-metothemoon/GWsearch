@@ -65,7 +65,8 @@ all_destinations = {
     'ATL': 'Atlanta, Georgia', 
     'SAV': 'Savannah, Georgia', 
     'BMI': 'Illinois', 
-    'MDW': 'Chicago', 
+    'MDW': 'Chicago',
+    'ORD': 'Chicago', 
     'IND': 'Indiana', 
     'CID': 'Cedar rapids, Iowa', 
     'DSM': 'Des Moines, Iowa', 
@@ -106,7 +107,8 @@ all_destinations = {
     'AUS': 'Austin, Texas', 
     'DFW': 'Dallas/Fort Worth', 
     'ELP': 'El Paso', 
-    'IAH': 'Houston', 
+    'IAH': 'Houston',
+    'HOU': 'Houston', 
     'SAT': 'San Antonio', 
     'STT': 'U.S. Virgin Islands', 
     'SLC': 'Utah', 
@@ -239,14 +241,16 @@ def print_dests(origin):
     for dest, name in destinations_avail.items():
         print(f"{'**' if dest in roundtrip_avail else ''}{dest}: {name}")
     print("** = next day return flight available")
+
 def main():
     global all_destinations
 
     parser = argparse.ArgumentParser(description='Check flight availability.')
     parser.add_argument('-o', '--origin', type=str, required=True, help='Origin IATA airport code.')
-    parser.add_argument('-d', '--dates', type=str, required=True, help='Show flights for:\n\tToday: 1\n\tTommorrow: 2\n\tBoth: 3')
-    # ??? Unsure how to offer feature right now
-    #parser.add_argument('-t', '--roundtrip', type=bool, default=False, help='Search for a roundtrip/return flights for tomorrow. \'True\' for yes, defualt is no')
+    # New! can search any date now
+    parser.add_argument('-d', '--dates', type=int, required=True, help='Show flights for:\n\tToday: 0\n\tTommorrow: 1\n\tAny number of days past today: ')
+    # ??? testing how to offer feature right now
+    parser.add_argument('-t', '--roundtrip', type=int, default=0, help='Search for a roundtrip/return flights for tomorrow. 1 for yes, defualt is no')
     parser.add_argument('-c', '--cjs', action='store_true', help='Use browser cookies.')
     parser.add_argument('-r', '--resume', type=int, default=0, help='Index of airport to resume from. Use index 21 to only search for contiguous US destinations.')
 
@@ -255,28 +259,14 @@ def main():
     input_dates = args.dates
     #roundtrip = args.roundtrip()
     cjs = args.cjs
-    today = datetime.today()
-    # test during blackout period
-    #today = datetime(2023,7,6)    
+    fly_date = datetime.today() + timedelta(days=input_dates) # Searches date of today + input 
     session = requests.Session()
     resume = args.resume
+    roundtrip = args.roundtrip
 
-    if input_dates in ['1','3']:
-        roundtrip = 1 # DEFAULT for now
-        # Todays date in URL format
-        print("\nFlights for today:")
-#(origin, date, session, cjs, roundtrip, start_index=0, destinations = all_destinations):
-        get_flight_html(origin, today, session, cjs, roundtrip, resume)
-        print_dests(origin)
-
-    if input_dates in ['2','3']:
-        roundtrip = 0 # DEFAULT for now
-        # Tomorrows date in URL
-        tmrw = today + timedelta(days=1)
-        travel_tmrw = tmrw.strftime("%b-%d,-%Y").replace("-", "%20")
-        print("\nFlights for tommorrow:")
-        get_flight_html(origin, tmrw, session, cjs, roundtrip, resume)
-        print_dests(origin)        
+    print(f"\nFlights for {fly_date.strftime('%A, %m-%d-%y')}:")
+    get_flight_html(origin, fly_date, session, cjs, roundtrip, resume)
+    print_dests(origin)
 
 if __name__ == "__main__":
     main()

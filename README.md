@@ -3,7 +3,7 @@
 # GoWild Flight Scraper Destination Finder
 
 This program allows users with Frontier Airlines' GoWild all-you-can-fly pass to quickly check the availability of flights to all different destinations. By scraping Frontier Airlines' website, the program provides information on flights available for the current day or the next day from the specified origin airport.
-This program is designed for those with the GoWild pass who embrace the spontinaity of it and want to see all available adventures they can take within the 24-hour booking period. 
+This program is designed for those with the GoWild pass who embrace the spontaneity of it and want to see all available adventures they can take within the 24-hour booking period. 
 
 ### Updates
 Most recent update allows for roundtrips! It will automatically search for next-day return flights for today departures.
@@ -12,17 +12,25 @@ Also should run faster by checking dates first and improved use for rate limitin
 ## Prerequisites
 Before running `gowild_scraper.py`, make sure you have the following installed on your system:
 
-- `Python 3.x`
+- `Python 3.6` or higher.
 If you don't have Python installed, follow the instructions [here](#downloading-python) to download it.
 - `requests` library
 - `beautifulsoup4` library
 - `browsercookie` library
 
-You can install the required libraries using `pip` or `pip3`:
+You can install the required libraries using `pip` with the following instructions:
 
-```
-pip install requests beautifulsoup4 browsercookie
-```
+1. Open the terminal/command prompt following the instructions mentioned [above](#opening-your-terminal).
+1. Navigate to the directory (folder) you want to download the program files to using the `cd <path>` command. For example, if you want to download the files to your desktop, you can use the following command:
+   ```bash
+   User> cd Desktop
+   ```
+   **OR**
+Navigate to the folder how you normally would and once inside right click and chose to 'Open in Terminal'
+1. Download the program files using the following command:
+   ```bash
+   pip install -r requirements.txt
+    ```
 If you are confused by this jump to [my broken down guide :)](#easy-guide) for set up.
 
 ## Usage
@@ -70,9 +78,9 @@ and ask for your input again. You can enter the index number of a destination to
 
 - Frontier Airlines' website may have usage restrictions or rate limiting in place. Running the program too frequently or making too many requests in a short period could lead to IP blocking or other issues. It is recommended to use the program responsibly and respect the website's [terms of service](https://www.flyfrontier.com/legal/terms-of-use/?mobile=true).
 
-## License
+<!-- ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://github.com/fly-metothemoon/GWsearch/blob/main/LICENSE). -->
 
 ## Disclaimer
 
@@ -132,39 +140,12 @@ No flights from CUN to AUS
 
 ## Easy Guide
 
-- [Downloading Python](#downloading-python)
+- [Downloading Python](https://realpython.com/installing-python/#toc)
+- [Opening your terminal](#opening-your-terminal)
 - [Downloading additional libraries](#downloading-libraries)
-   - [Opening your terminal](#opening-your-terminal)
 - [Downloading the flight search program](#downloading-this-program)
 - [Running the flight search program](#running-the-flight-search-program)
 - [Example output](#example-output)
-
-### Downloading Python
-- **macOS**
-1. Open a web browser and go to the official Python website: [https://www.python.org/downloads/macos/](https://www.python.org/downloads/macos/).
-2. Download the latest version for macOS.
-3. Once the installer is downloaded, open it and follow the instructions to install Python.
-4. Jump back [here](#downloading-libraries) to continue setting up the program
-
-- **Windows**
-1. Open a web browser and go to the official Python website: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/).
-2. Download the latest version for Windows
-4. Once the installer is downloaded, open it and follow the instructions to install Python.
-5. Jump back [here](#downloading-libraries) to continue setting up the program
-
-- **Linux**
-   - Python is usually pre-installed on most Linux distributions. Open the terminal and type `python3 --version` to check if it's already installed. If not, use your package manager to install Python (e.g., `sudo apt install python3` for Ubuntu-based distributions).
-
-### Downloading Libraries
-
-Next step is downloading the additional python libraries, like extension packs, that I have utilized in the program. If you have installed and set up Python correctly, you should be able to download the packages through your terminal.
-Instructions for opening your terminal for [Windows](#windows), [Mac](#macos), [Linux](#linux)
-
-With your terminal/compand prompt open you can use the *pip* or *pip3* for windows installer that comes with python.
-*copy, paste, enter, and it should start doing its computer things beep boop*
-```
-pip install requests beautifulsoup4 browsercookie
-```
 
 ### Opening your terminal
 
@@ -177,21 +158,51 @@ pip install requests beautifulsoup4 browsercookie
 #### Linux
    Press `Ctrl + Alt + T` to open the terminal.
 
+### Downloading Libraries
+
+Next step is downloading the additional python libraries, like extension packs, that I have utilized in the program. If you have installed and set up Python correctly, you should be able to download the packages through your terminal.
+Instructions for opening your terminal for [Windows](#windows), [Mac](#macos), [Linux](#linux)
+
+1. Open the terminal/command prompt following the instructions mentioned [above](#opening-your-terminal).
+1. Navigate to the directory (folder) you want to download the program files to using the `cd <path>` command. For example, if you want to download the files to your desktop, you can use the following command:
+   ```bash
+   User> cd Desktop
+   ```
+   **OR**
+Navigate to the folder how you normally would and once inside right click and chose to 'Open in Terminal'
+1. Download the program files using the following command:
+   ```bash
+   pip install -r requirements.txt
+    ```
+
 ### Downloading this program
 
 Alright we're almost there! 
 
 To use the `gowild_scraper.py` program, you need to download the actual program files from the GitHub repository.
 
+1. Open the terminal/command prompt following the instructions mentioned [above](#opening-your-terminal).
+1. Navigate to the directory (folder) you want to download the program files to using the `cd <path>` command. For example, if you want to download the files to your desktop, you can use the following command:
+   ```bash
+   User> cd Desktop
+   ```
+   **OR**
+Navigate to the folder how you normally would and once inside right click and chose to 'Open in Terminal'
+1. Download the program files using the following command:
+   ```bash
+   git clone https://github.com/fly-metothemoon/GWsearch.git
+    ```
+
+If you do not have git installed, you can download the files manually by following these steps:
 1. Go to my GitHub repository, if you're reading this you're probably already there! 
 [https://github.com/fly-metothemoon/GWsearch](https://github.com/fly-metothemoon/GWsearch).
-2. Click on the green "Code" button and select "Download ZIP" to download the repository as a ZIP file.
-3. Once the ZIP file is downloaded, locate it on your computer and unzip it in to a findable location on your computer.
+1. Click on the green "Code" button and select "Download ZIP" to download the repository as a ZIP file.
+1. Once the ZIP file is downloaded, locate it on your computer and unzip it in to a findable location on your computer.
 
 ### Running the flight search program
 1. Open the terminal/command prompt following the instructions mentioned [above](#opening-your-terminal).
 
-2. Navigate to the directory (folder) you unzipped where you have saved the `gowild_scraper.py` file using the `cd <path>` command. For example, if the file is on your desktop, you can use the following command:
+1. Navigate to the directory (folder) you unzipped where you have saved the `gowild_scraper.py` file using the `cd <path>` command. For example, if the file is on your desktop, you can use the following command:
 * 'dir' for windows or 'ls' for mac will list all files in current directory.
    ```bash
    User> cd Desktop
@@ -200,7 +211,7 @@ To use the `gowild_scraper.py` program, you need to download the actual program 
    **OR**
 Navigate to the folder how you normally would and once inside right click and chose to 'Open in Terminal'
 
-3. Run the program using the following command:
+1. Run the program using the following command:
 
    ```bash
    python gowild_scraper.py -o ORIGIN -d DATES
@@ -221,9 +232,9 @@ Navigate to the folder how you normally would and once inside right click and ch
    python gowild_scraper.py -o JFK -d 0 -t 1
    ```
 
-4. The program will display the available flights and their details, including departure dates, total flight time, and prices. If there are roundtrip flights available for the next day, they will be marked with `**`. Next day return flights are only searched for if you plan on departing today. Do you want something different? Let me know!
+1. The program will display the available flights and their details, including departure dates, total flight time, and prices. If there are roundtrip flights available for the next day, they will be marked with `**`. Next day return flights are only searched for if you plan on departing today. Do you want something different? Let me know!
 
-5. After displaying the flight information, the program will list the available destinations
+1. After displaying the flight information, the program will list the available destinations
 
 and ask for your input again. You can enter the index number of a destination to check for flights from your origin to that destination. Alternatively, you can enter `exit` to quit the program.
 
